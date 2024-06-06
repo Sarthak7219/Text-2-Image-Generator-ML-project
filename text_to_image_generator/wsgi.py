@@ -15,4 +15,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'text_to_image_generator.setting
 
 application = get_wsgi_application()
 
-app = application
