@@ -52,7 +52,7 @@ def index_view(request):
                 error_message = 'Unknown error occurred'
             context['error'] = f"Error fetching image from API: {error_message}"
 
-    return render(request, 'index1.html', context)
+    return render(request, 'index.html', context)
 
 
 
