@@ -1,0 +1,69 @@
+{% extends 'index1.html' %}
+
+{% block content %}
+<div class="img-gen-page">
+    <div class="left">
+        <a href="{% url 'home' %}">
+            <img src="" alt="logo">
+        </a>
+
+        <div class="flex-col">
+            <div class="prompt-input">
+                <textarea name="" id="" placeholder="Describe what you want"></textarea>
+                <div class="icon"><img src="/static/images/mdi_stars.svg" alt=""></div>
+                <div class="line"></div>
+                <div class="chatgpt">
+                    <p>Improvise your prompt using ChatGPT</p>
+                    <img src="/static/images/ep_arrow-down-bold (1).svg" alt="">
+                </div>
+            </div>
+
+            <button class="btn">
+                <img src="/static/images/carbon_magic-wand-filled.svg" alt="">
+                <p>Generate</p>
+            </button>
+
+            <div class="resolution">
+                <p>1x1</p>
+                <img src="/static/images/ep_arrow-down-bold (1).svg" alt="">
+            </div>
+        </div>
+
+        <div class="images">
+            <h2>Our images</h2>
+            <div class="img-grid">
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="center">
+
+        <img src="/static/images/futuristic-representation-dragon-creature.jpg" alt="">
+        <div>
+            <div class="btn">
+                <img src="/static/images/noun-regenerate-3502636 1.svg" alt="">
+                <p>Regenerate</p>
+            </div>
+            <div class="btn download">
+                <img src="/static/images/material-symbols_download.svg" alt="">
+                <p>Download</p>
+            </div>
+        </div>
+    </div>
+    <div class="line-ver"></div>
+    <div class="right">
+        <h2>My Creations</h2>
+        <div>
+            <img src="/static/images/noun-images-4919305 1.svg" alt="">
+            <h2>No record</h2>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
