@@ -24,7 +24,7 @@ font-family: Montserrat;
     width: 100%;
     height: 100vh;
     min-height: 700px;
-    background-image: url(/static/images/Frame\ 8\ \(1\).png);
+    background-image: url('/static/images/home.png');
     background-size:cover;
     background-repeat: no-repeat;
 }
