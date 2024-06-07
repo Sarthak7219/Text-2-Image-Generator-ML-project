@@ -42,8 +42,12 @@ def download_image_view(request):
 def image_generation_view(request):
     context = {}
 
-    if TOKEN is not None and request.method == 'POST':
-        user_prompt = request.POST.get('user_prompt')
+    if TOKEN is not None:
+        user_prompt = request.POST.get('user_prompt') if request.method == 'POST' else request.GET.get('prompt')
+
+        if user_prompt:
+            context['user_prompt'] = user_prompt
+
 
         response = query({
             "inputs": user_prompt,
