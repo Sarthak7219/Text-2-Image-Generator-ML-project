@@ -61,6 +61,9 @@ def image_generation_view(request):
                 image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
 
                 context['image_base64'] = image_base64
+                # Store the image in session
+                request.session['image_base64'] = image_base64
+                
             except Exception as e:
                 context['error'] = f"Error processing image: {str(e)}"
         else:
