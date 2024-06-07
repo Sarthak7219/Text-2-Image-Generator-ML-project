@@ -6,6 +6,7 @@ import io
 import base64
 from PIL import Image
 import json
+from django.http import HttpResponse
 
 load_dotenv()
 
@@ -18,8 +19,27 @@ def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response
 
-
 def index_view(request):
+    context = {}
+    return render(request, 'index.html', context)
+
+
+
+def download_image_view(request):
+    image_base64 = request.session.get('image_base64')
+
+    if not image_base64:
+        return HttpResponse("No image to download", status=404)
+
+    # Decode the base64 image
+    image_data = base64.b64decode(image_base64)
+    response = HttpResponse(image_data, content_type='image/png')
+    response['Content-Disposition'] = 'attachment; filename="generated_image.png"'
+
+    return response
+
+
+def image_generation_view(request):
     context = {}
 
     if TOKEN is not None and request.method == 'POST':
@@ -28,8 +48,6 @@ def index_view(request):
         response = query({
             "inputs": user_prompt,
         })
-
-        
 
         if response.status_code == 200:
             try:
@@ -52,9 +70,8 @@ def index_view(request):
                 error_message = 'Unknown error occurred'
             context['error'] = f"Error fetching image from API: {error_message}"
 
-    return render(request, 'index.html', context)
+    return render(request, 'img_gen_page.html', context)
 
 
 
-def image_generation_view(request):
-    return render(request, 'img_gen_page.html')
+

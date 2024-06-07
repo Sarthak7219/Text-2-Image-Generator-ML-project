@@ -20,7 +20,7 @@
             <p>Transform Your Words into Vivid Art</p>
             <form class="input-box" method="post" action="{% url 'generate_image' %}">
                 {% csrf_token %}
-                <input type="text" name="user_prompt" id="" placeholder="Enter a prompt">
+                <input type="text" name="user_prompt" id="" placeholder="Enter a prompt" required>
                 <div class="right">
                     <div class="orientation">
                         <p>1x1</p>
@@ -36,6 +36,14 @@
         </div>
     </div>
     {% endblock %}
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', function () {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('buttons').style.display = 'none';
+            document.getElementById('previous-gen-image').style.display = 'none';
+        });
+    </script>
 </body>
 
 </html>

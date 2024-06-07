@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view, name='home'),
     path('generate-image/', image_generation_view, name='generate_image'),
+    path('download_image/', download_image_view, name='download_image'),
 ]
 
 if settings.DEBUG:
