@@ -307,7 +307,8 @@ font-weight: 600;
 .img-grid .img{
     width: 100.5px;
 height: 102px;
-border: 1px solid black;
+object-fit: cover;
+border-radius: 6px;
 }
 
 
